@@ -1,4 +1,4 @@
-{% set version = "17.17.0" %}
+{% set version = "19.15.0" %}
 
 package:
   name: python-kubernetes
@@ -6,33 +6,30 @@ package:
 
 source:
   url: https://pypi.io/packages/source/k/kubernetes/kubernetes-{{ version }}.tar.gz
-  sha256: c69b318696ba797dcf63eb928a8d4370c52319f4140023c502d7dfdf2080eb79
+  sha256: 08c93f300a9837104282ecc81458b903a56444c5c1ec3d990d237557312af47f
 
 build:
   number: 0
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  skip: True  # [py<37]
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=21.0.0
   run:
-    - python >=3.6
+    - python
     - certifi >=14.05.14
     - google-auth >=1.0.1
     - python-dateutil >=2.5.3
-    - pyyaml >=3.12
+    - pyyaml >=5.4.1
     - requests
     - requests-oauthlib
-    - setuptools >=21.0.0
     - six >=1.9.0
     - urllib3 >=1.24.2
     - websocket-client >=0.32.0,!=0.40.0,!=0.41.*,!=0.42.*
-    # - aiohttp >=3.6.3
-    # - adal >=1.0.2
 
 test:
   requires:
@@ -51,10 +48,13 @@ about:
   home: https://github.com/kubernetes-incubator/client-python
   license: Apache-2.0
   summary: The official Kubernetes python client.
+  description: Python client for kubernetes http://kubernetes.io/
   license_family: APACHE
   license_file: LICENSE
+  license_url: https://www.apache.org/licenses/LICENSE-2.0
   dev_url: https://github.com/kubernetes-incubator/client-python
   doc_url: https://github.com/kubernetes-client/python/blob/master/README.md
+  doc_source_url: https://github.com/kubernetes-client/python/tree/master/doc
 
 extra:
   recipe-maintainers:
