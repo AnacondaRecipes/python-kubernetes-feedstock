@@ -39,20 +39,22 @@ test:
   imports:
     - kubernetes
     - kubernetes.client
+    - kubernetes.client.api
     - kubernetes.client.apis
     - kubernetes.client.models
     - kubernetes.config
     - kubernetes.watch
+    - kubernetes.utils
 
 about:
-  home: https://github.com/kubernetes-incubator/client-python
+  home: https://github.com/kubernetes-client/python
   license: Apache-2.0
   summary: The official Kubernetes python client.
   description: Python client for kubernetes http://kubernetes.io/
   license_family: APACHE
   license_file: LICENSE
   license_url: https://www.apache.org/licenses/LICENSE-2.0
-  dev_url: https://github.com/kubernetes-incubator/client-python
+  dev_url: https://github.com/kubernetes-client/python
   doc_url: https://github.com/kubernetes-client/python/blob/master/README.md
   doc_source_url: https://github.com/kubernetes-client/python/tree/master/doc
 
