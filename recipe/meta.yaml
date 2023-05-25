@@ -9,8 +9,8 @@ source:
   sha256: c9849afc2eafdce60efa210049ee7a94e7ef6cf3a7afa14a69b3bf0447825977
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: True  # [py<36]
 
 requirements:
@@ -53,10 +53,8 @@ about:
   description: Python client for kubernetes http://kubernetes.io/
   license_family: APACHE
   license_file: LICENSE
-  license_url: https://www.apache.org/licenses/LICENSE-2.0
   dev_url: https://github.com/kubernetes-client/python
   doc_url: https://github.com/kubernetes-client/python/blob/master/README.md
-  doc_source_url: https://github.com/kubernetes-client/python/tree/master/doc
 
 extra:
   recipe-maintainers:
