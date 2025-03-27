@@ -1,0 +1,34 @@
+{% set name = "python-kubernetes" %}
+{% set version = "0.2" %}
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python-kubernetes-{{ version }}.tar.gz
+  sha256: d35ccb8ae7a30554b589c3a39ec07b78a64b5107fd828527d2d96d2ac0e7ef04
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - requests
+test:
+  imports:
+    - kubernetes
+  commands:
+    - pip check
+  requires:
+    - pip
+about:
+  home: https://github.com/cosmos-io/python-kubernetes
+  summary: A Python wrapper around the Kubernetes API
+  license: Apache-2.0
+  license_file: PLEASE_ADD_LICENSE_FILE
+extra:
+  recipe-maintainers:
+    - Arishamays1

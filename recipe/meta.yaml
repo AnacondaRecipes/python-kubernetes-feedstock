@@ -1,16 +1,16 @@
-{% set version = "23.6.0" %}
+{% set version = "32.0.1" %}
 
 package:
   name: python-kubernetes
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/k/kubernetes/kubernetes-{{ version }}.tar.gz
-  sha256: cadb1cd7c44eae5b39b50316313343c0f2aff94529f067ec2ba44d38411158e3
+  url: https://pypi.org/packages/source/k/kubernetes/kubernetes-{{ version }}.tar.gz
+  sha256: 42f43d49abd437ada79a79a16bd48a604d3471a117a8347e87db693f2ba0ba28
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   skip: True  # [py<36]
 
 requirements:
@@ -22,12 +22,13 @@ requirements:
   run:
     - python
     - certifi >=14.05.14
-    - google-auth >=1.0.1
     - python-dateutil >=2.5.3
+    - google-auth >=1.0.1
     - pyyaml >=5.4.1
     - requests
     - requests-oauthlib
-    - setuptools >=21.0.0
+    - oauthlib >=3.2.2
+    - durationpy >=0.7.0
     - six >=1.9.0
     - urllib3 >=1.24.2
     - websocket-client >=0.32.0,!=0.40.0,!=0.41.*,!=0.42.*
@@ -49,6 +50,10 @@ about:
   home: https://github.com/kubernetes-incubator/client-python
   license: Apache-2.0
   summary: The official Kubernetes python client.
+  description: |
+    The official Kubernetes python client. This is a client library for
+    Kubernetes, an open-source container-orchestration system for automating
+    computer application deployment, scaling, and management.
   license_family: APACHE
   license_file: LICENSE
   dev_url: https://github.com/kubernetes-incubator/client-python
