@@ -17,7 +17,7 @@ requirements:
   host:
     - python
     - pip
-    # - setuptools
+    - setuptools
     - wheel
   run:
     - python
@@ -37,15 +37,18 @@ requirements:
 test:
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest kubernetes/e2e-test -v
   imports:
     - kubernetes
     - kubernetes.client
-    - kubernetes.client.apis
+    - kubernetes.client.api
     - kubernetes.client.models
     - kubernetes.config
     - kubernetes.watch
+    - kubernetes.e2e_test
 
 about:
   home: https://github.com/kubernetes-incubator/client-python
