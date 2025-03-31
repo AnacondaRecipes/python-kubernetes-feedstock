@@ -53,7 +53,7 @@ test:
     - kubernetes.e2e_test
 
 about:
-  home: https://github.com/kubernetes-incubator/client-python
+  home: https://github.com/kubernetes-client/python
   license: Apache-2.0
   summary: The official Kubernetes python client.
   description: |
