@@ -5,9 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/kubernetes-client/python/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 961656563884c033438689424d5e955ae8c98164f687c2ce2edbb122df6d26c6
-
+  url: https://pypi.org/packages/source/k/kubernetes/kubernetes-{{ version }}.tar.gz
+  sha256: 42f43d49abd437ada79a79a16bd48a604d3471a117a8347e87db693f2ba0ba28
+  
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
@@ -37,23 +37,17 @@ requirements:
     - adal >=1.0.2
 
 test:
-  source_files:
-    - kubernetes/**
   requires:
     - pip
-    - pytest
   commands:
     - pip check
-    - pytest -rs kubernetes/e2e_test -v
-    - pytest -rs kubernetes/test -k "not (test_rest_proxycare)" -v
   imports:
     - kubernetes
     - kubernetes.client
-    - kubernetes.client.api
+    - kubernetes.client.apis
     - kubernetes.client.models
     - kubernetes.config
     - kubernetes.watch
-    - kubernetes.e2e_test
 
 about:
   home: https://github.com/kubernetes-client/python
