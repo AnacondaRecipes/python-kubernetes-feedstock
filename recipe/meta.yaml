@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "35.0.0" %}
+{% set version = "36.0.1" %}
 
 package:
   name: python-{{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3d00d344944239821458b9efd484d6df9f011da367ecb155dadf9513f05f09ee
+  sha256: 3eadd6ae1be3b742ae63bd382b139c9fd5171afb6e00771dcefaae2d49001992
 
 build:
   number: 0
-  skip: true  # [py<36]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
@@ -26,15 +26,14 @@ requirements:
     - six >=1.9.0
     - python-dateutil >=2.5.3
     - setuptools >=21.0.0
-    - pyyaml >=5.4.1
-    - google-auth >=1.0.1
+    - pyyaml >=6.0.3
     - websocket-client >=0.32.0,!=0.40.0,!=0.41.*,!=0.42.*
     - requests
     - requests-oauthlib
     - urllib3 >=1.24.2,!=2.6.0
     - durationpy >=0.7
   run_constrained:
-    - adal >=1.0.2
+    - google-auth >=1.0.1
 
 test:
   requires:
