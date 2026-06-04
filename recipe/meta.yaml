@@ -65,3 +65,5 @@ extra:
   recipe-maintainers:
     - johanneskoester
     - ocefpaf
+  skip-lints:
+    - python_build_tools_in_host
