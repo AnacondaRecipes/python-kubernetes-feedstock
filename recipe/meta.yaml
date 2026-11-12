@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "37.0.1" %}
+{% set version = "37.0.2" %}
 
 package:
   name: python-{{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e41db0a95615c2388680a2d556df33fd0f27a5717c9b5df5857e475c196c2f10
+  sha256: 6967599ef976d0bb9c663c3621e690db0e26fbab7cf5c5e3ccf7e11b790d2de9
 
 build:
   number: 0
@@ -23,15 +23,16 @@ requirements:
   run:
     - python
     - certifi >=2026.7.22
-    - python-dateutil >=2.8.2
+    - python-dateutil >=3.0.0
     - setuptools >=84.0.0
     - pyyaml >=6.0.3
     - websocket-client >=0.32.0,!=0.40.0,!=0.41.*,!=0.42.*
     - requests
     - requests-oauthlib
+    - oauthlib >=4.0.0
     - urllib3 >=2.8.0,<3.0.0
     - durationpy >=0.11
-    - pydantic >=2.13.5
+    - pydantic >=2.14.2
     - typing_extensions >=4.16.0
   run_constrained:
     - google-auth >=1.0.1
